@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
 
-/* betty style doc for function main goes there */
+/**
+ * main - Entry point of the program
+ *
+ * Description: This program generates a random number and determines
+ *              whether it is positive, negative, or zero. It uses the rand()
+ *              function from the C standard library to generate a random
+ *              number, and then evaluates and displays the result.
+ *
+ * Return: 0 on successful execution
+ */
 int main(void)
 {
 	int n;
@@ -23,6 +31,6 @@ int main(void)
 	{
 		printf("%d is zero\n", n);
 	}
-		 
+
 	return (0);
 }
