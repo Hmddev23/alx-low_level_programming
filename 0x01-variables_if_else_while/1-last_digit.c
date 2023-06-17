@@ -5,9 +5,11 @@
 /**
  * main - Entry point of the program
  *
- * Description: This program generates a random number, extracts its last digit using 
- * 		the modulo operator (%), and prints a message indicating its properties:
- * 		greater than 5, equal to 0, or less than 6 and not equal to 0.
+ * Description: This program generates a random number, extracts its
+ * 		last digit using the modulo operator (%), and prints
+ * 		a message indicating its properties:
+ * 		greater than 5, equal to 0, or less than 6 and not
+ * 		equal to 0.
  *
  * Return: 0 on successful execution
  */
