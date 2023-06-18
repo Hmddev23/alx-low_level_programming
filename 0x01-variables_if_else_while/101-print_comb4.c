@@ -21,7 +21,7 @@ int main(void)
 				putchar('0' + nbr1);
 				putchar('0' + nbr2);
 				putchar('0' + nbr3);
-				if (nbr1 != 7 || nbr2 != 8 || nb3 != 9)
+				if (nbr1 != 7 || nbr2 != 8 || nbr3 != 9)
 				{
 					putchar(',');
 					putchar(' ');
