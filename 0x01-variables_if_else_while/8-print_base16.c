@@ -14,13 +14,13 @@ int main(void)
 
 	for (number = 0; number <= 15; ++number)
 	{
-		if(number < 10)
+		if (number < 10)
 		{
 			putchar('0' + number);
 		}
 		else
 		{
-			putchar('a'+ number - 10);
+			putchar('a' + number - 10);
 		}
 	}
 	putchar('\n');
