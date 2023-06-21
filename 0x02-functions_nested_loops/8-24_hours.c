@@ -6,8 +6,8 @@
  *
  * jack_bauer - check the code.
  *
- * jack_bauer: print every minute of the day of Jack Bauer
- *		starting from 00:00 to 23:59.
+ * Description: jack_bauer function every minute of the day of
+ *		Jack Bauer starting from 00:00 to 23:59.
  *
  * Return: Nothing.
  */
