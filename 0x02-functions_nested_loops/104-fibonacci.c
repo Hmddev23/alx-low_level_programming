@@ -13,7 +13,7 @@ int main(void)
 	int i;
 
 	for (i = 3; i <= 98; ++i) {
-		int next = num1 + num2;
+		long next = num1 + num2;
 		printf("%ld\n", next);
     		num1 = num2;
 		num2 = next;
