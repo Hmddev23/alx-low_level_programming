@@ -12,11 +12,13 @@ int main(void)
 	long num2 = 1;
 	int i;
 
-	for (i = 0; i < 98; ++i) {
+	for (i = 0; i < 98; ++i)
+	{
 		long next = num1 + num2;
+
 		printf("%ld, ", next);
-    		num1 = num2;
+		num1 = num2;
 		num2 = next;
 	}
-	return 0;
+	return (0);
 }
