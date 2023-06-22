@@ -10,12 +10,12 @@ int main(void)
 {
 	int count;
 	int fib1 = 0, fib2 = 1;
-	int sum;
+	long sum;
 
 	for (count = 0; count < 50; count++)
 	{
 		sum = fib1 + fib2;
-		printf("%d", sum);
+		printf("%ld", sum);
 
 		fib1 = fib2;
 		fib2 = sum;
