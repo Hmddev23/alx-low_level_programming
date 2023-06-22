@@ -10,10 +10,9 @@ int main(void)
 {
 	long num1 = 1;
 	long num2 = 2;
+	int i;
 
-	printf("%ld\n%ld\n", num1, num2);
-
-	for (int i = 3; i <= 98; ++i) {
+	for (i = 3; i <= 98; ++i) {
 		int next = num1 + num2;
 		printf("%ld\n", next);
     		num1 = num2;
