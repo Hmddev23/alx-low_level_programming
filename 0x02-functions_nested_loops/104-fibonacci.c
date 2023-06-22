@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-	unsigned long long num1 = 0, num2 = 1;
-	unsigned long long next;
+	unsigned long num1 = 0, num2 = 1;
+	unsigned long next;
 	int i;
 
 	for (i = 0; i < 98; ++i)
