@@ -14,7 +14,7 @@ int main(void)
 
 	for (i = 3; i <= 98; ++i) {
 		long next = num1 + num2;
-		printf("%ld\n", next);
+		printf("%ld, ", next);
     		num1 = num2;
 		num2 = next;
 	}
