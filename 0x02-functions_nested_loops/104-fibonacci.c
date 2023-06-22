@@ -8,11 +8,11 @@
  */
 int main(void)
 {
-	long num1 = 1;
-	long num2 = 2;
+	long num1 = 0;
+	long num2 = 1;
 	int i;
 
-	for (i = 3; i <= 98; ++i) {
+	for (i = 0; i <= 98; ++i) {
 		long next = num1 + num2;
 		printf("%ld, ", next);
     		num1 = num2;
