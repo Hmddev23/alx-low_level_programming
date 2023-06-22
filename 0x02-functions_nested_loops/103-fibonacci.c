@@ -2,7 +2,7 @@
 
 /**
  * main - Print the sum of the even-valued terms
- * 		not exceeding 4000000.
+ *		not exceeding 4000000.
  *
  * Return: Always 0.
  */
