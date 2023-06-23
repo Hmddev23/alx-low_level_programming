@@ -1,8 +1,3 @@
-/*
- * File: 9-fizz_buzz.c
- * Auth: ABDELHAMID-MAAIRA
- */
-
 #include <stdio.h>
 
 /**
