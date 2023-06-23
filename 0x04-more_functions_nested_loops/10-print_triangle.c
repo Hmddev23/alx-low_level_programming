@@ -14,24 +14,24 @@
  */
 void print_triangle(int size)
 {
-	int hash, index;
+	int head, index;
 
 	if (size > 0)
 	{
-		for (hash = 1; hash <= size; hash++)
+		for (head = 1; head <= size; head++)
 		{
-			for (index = size - hash; index > 0; index--)
-				_putchar(' ');
+			for (index = size - head; index > 0; index--)
+				putchar(' ');
 
-			for (index = 0; index < hash; index++)
-				_putchar('#');
+			for (index = 0; index < head; index++)
+				putchar('#');
 
-			if (hash == size)
+			if (head == size)
 				continue;
 
-			_putchar('\n');
+			putchar('\n');
 		}
 	}
 
-	_putchar('\n');
+	putchar('\n');
 }
