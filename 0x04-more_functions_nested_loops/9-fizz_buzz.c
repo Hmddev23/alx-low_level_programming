@@ -27,6 +27,7 @@ int main(void)
 		else
 			printf("%d", number);
 	}
+
 	printf("\n");
 
 	return (0);
