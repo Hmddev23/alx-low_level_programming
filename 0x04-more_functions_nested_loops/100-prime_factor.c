@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	long fct;
+	int fct;
 	long prime = 612852475143;
 
 	while (fct < (prime / 2))
