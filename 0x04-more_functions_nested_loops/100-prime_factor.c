@@ -1,8 +1,3 @@
-/*
- * File: 100-prime_factor.c
- * Auth: ABDELHAMID-MAAIRA
- */
-
 #include <stdio.h>
 
 /**
