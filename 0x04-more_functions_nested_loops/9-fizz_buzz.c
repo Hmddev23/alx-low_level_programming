@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 /**
-  * main - Prints the numbers from 1-100, But for multiples
-  *	of three print Fizz, for multiples of five
-  *	print Buzz and for multiples of both print
-  *	FizzBuzz.
-  *
-  * Return: Always 0.
-  */
+ * main - Prints the numbers from 1-100, But for multiples
+ *	of three print Fizz, for multiples of five
+ *	print Buzz and for multiples of both print
+ *	FizzBuzz.
+ *
+ * Return: Always 0.
+ */
 
 int main(void)
 {
