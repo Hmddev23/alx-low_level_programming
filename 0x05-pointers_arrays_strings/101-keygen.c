@@ -12,10 +12,11 @@
 int main(void)
 {
 	int i, password_length;
-	char password[password_length + 1];
+	char *password;
 
 	srand(time(NULL));
 	password_length = 10;
+	password[password_length + 1];
 
 	for (i = 0; i < password_length; i++) {
 		password[i] = 'A' + rand() % 26;
