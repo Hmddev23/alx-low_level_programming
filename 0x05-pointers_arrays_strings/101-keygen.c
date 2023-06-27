@@ -11,27 +11,17 @@
 
 int main(void)
 {
-	int pass[100];
-	int i, total, number;
-
-	total = 0;	
+	int i, password_length;
+	char password[password_length + 1];
 
 	srand(time(NULL));
+	password_length = 10;
 
-	for (i = 0; i < 100; i++)
-	{
-		pass[i] = rand() % 78;
-		total += (pass[i] + '0');
-		putchar(pass[i] + '0');
-
-		if ((2772 - total) - '0' < 78)
-		{
-			number = 2772 - total - '0';
-			total += number;
-			putchar(number + '0');
-			break;
-		}
+	for (i = 0; i < password_length; i++) {
+		password[i] = 'A' + rand() % 26;
 	}
-
+	password[password_length] = '\0';
+	printf("%s\n", password);
+	
 	return (0);
 }
