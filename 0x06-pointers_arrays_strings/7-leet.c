@@ -19,9 +19,9 @@ char *leet(char *s)
 	{
 		for (leet_len = 0; leet_len < 10; leet_len++)
 		{
-			if (s[s_len] == a[leet_len])
+			if (s[s_len] == letters[leet_len])
 			{
-				s[s_len] = b[leet_len];
+				s[s_len] = numbers[leet_len];
 			}
 		}
 	}
