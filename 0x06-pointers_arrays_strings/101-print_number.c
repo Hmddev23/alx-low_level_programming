@@ -1,0 +1,30 @@
+#include "main.h"
+
+/**
+  * print_number - Print an integer.
+  *
+  * @n: Integer parameter.
+  *
+  * Return: Nothing.
+  */
+
+void print_number(int n)
+{
+	int nbr;
+
+	if (n < 0)
+	{
+		nbr = -n;
+		_putchar ('-');
+	}
+	else
+	{
+		nbr = n;
+	}
+
+	if (nbr / 10)
+	{
+		print_number(nbr / 10);
+	}
+	_putchar((nbr % 10) + '0');
+}
