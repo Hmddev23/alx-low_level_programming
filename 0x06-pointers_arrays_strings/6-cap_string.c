@@ -8,19 +8,19 @@
   * Return: Uppercase string.
   */
 
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
 	int capitalizeNext = 1;
 
-	while (*str != '\0')
+	while (*s != '\0')
 	{
-		if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
+		if ((*s >= 'a' && *s <= 'z') || (*s >= 'A' && *s <= 'Z'))
 		{
 			if (capitalizeNext)
 			{
-				if (*str >= 'a' && *str <= 'z')
+				if (*s >= 'a' && *s <= 'z')
 				{
-					*str = *str - 'a' + 'A';
+					*s = *s - 'a' + 'A';
 				}
 				capitalizeNext = 0;
 			}
@@ -29,8 +29,8 @@ char *cap_string(char *str)
 		{
 			capitalizeNext = 1;
 		}
-		str++;
+		s++;
 	}
 
-	return str;
+	return s;
 }
