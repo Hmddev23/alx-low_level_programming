@@ -2,7 +2,7 @@
 
 /**
   * string_toupper - Change all lowercase letters to uppercase.
-	*
+  *
   * @s: String parameter to modify.
   *
   * Return: Resulting string.
