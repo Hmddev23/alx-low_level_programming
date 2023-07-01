@@ -32,5 +32,5 @@ char *cap_string(char *s)
 		s++;
 	}
 
-	return s;
+	return (s);
 }
