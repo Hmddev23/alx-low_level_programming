@@ -9,13 +9,13 @@
   * Return: Pointer to the byte in s.
   */
 
-char *_strpbrk(char *s, char *charset)
+char *_strpbrk(char *s, char *accept)
 {
 	char *c;
 
 	while (*s)
 	{
-		c = charset;
+		c = accept;
 		while (*c)
 		{
 			if (*s == *c)
