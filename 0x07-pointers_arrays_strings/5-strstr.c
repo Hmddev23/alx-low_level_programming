@@ -5,7 +5,7 @@
   *
   * @haystack: String parameter.
   * @needle: Substring parameter.
-  * 
+  *
   * Return: Pointer to the beginning of the located substring.
   */
 
