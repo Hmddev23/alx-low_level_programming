@@ -14,7 +14,7 @@ int is_divisible(int n, int divisor);
 int is_palindrome(char *s);
 int is_palindrome_helper(char *start, char *end);
 int _str_length(char *s);
-
+int wildcmp(char *s1, char *s2);
 
 
 
