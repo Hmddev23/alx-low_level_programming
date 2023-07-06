@@ -8,6 +8,8 @@
   * Return: Sqrt of n.
   */
 
+int _sqrt_helper(int n, int start, int end);
+
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
