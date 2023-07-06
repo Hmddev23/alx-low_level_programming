@@ -39,7 +39,7 @@ int _sqrt_helper(int n, int start, int end)
 	}
 
 	mid = start + (end - start) / 2;
-	square = mid * mid;
+	square = (long)mid * mid;
 
 	if (square == n)
 	{
