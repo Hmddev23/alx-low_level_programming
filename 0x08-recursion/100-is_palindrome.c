@@ -59,7 +59,7 @@ int is_palindrome(char *s)
 {
 	int length;
 
-	length = str_length(s);
+	length = _str_length(s);
 
 	if (length <= 1)
 	{
