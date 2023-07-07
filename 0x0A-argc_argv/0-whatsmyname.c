@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -12,7 +11,15 @@
 
 int main(int argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	int i;
+
+	for (i = 0; i < argc; i++)
+	{
+		if (argc == 1)
+			printf("%s\n", argv[i]);
+		else
+			break;
+	}
 
 	return (0);
 }
