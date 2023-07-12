@@ -57,7 +57,7 @@ void free_memory(char **ar, int size)
 
 char **strtow(char *str)
 {
-	int i, start, word_length;
+	int i, j, start, word_length;
 	int str_length = count_words(str);
 	char **string = NULL;
 
@@ -84,7 +84,7 @@ char **strtow(char *str)
 			free_memory(string, i);
 			return (NULL);
 		}
-		for (int j = 0; j < word_length; j++)
+		for (j = 0; j < word_length; j++)
 			string[i][j] = str[start + j];
 		string[i][word_length] = '\0';
 
