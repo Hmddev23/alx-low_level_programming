@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * argstostr - a function that concatenates
+  * argstostr - Concatenate all the arguments of the main function.
   *
   * @ac: Int parameter, argument counter.
   * @av: Double char pointer parameter, argument values.
@@ -11,45 +11,36 @@
 
 char *argstostr(int ac, char **av)
 {
-	char *result;
-	int total_length, newline_count, index;
-	int i, k;
+	int i, j, k, length;
+	char *string;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	total_length = 0;
-	newline_count = ac - 1;
+
+	length = 0;
 	for (i = 0; i < ac; i++)
 	{
-		char *arg = av[i];
-		int arg_length = 0;
-		while (*arg != '\0')
-		{
-			arg_length++;
-			arg++;
-		}
-		total_length += arg_length;
+		for (j = 0; av[i][j] != '\0'; j++)
+			length++;
+		length++;
 	}
-	total_length += newline_count;
-	result = (char *)malloc((total_length + 1) * sizeof(char));
-	if (result == NULL)
+
+	string = (char *)malloc((length + 1) * sizeof(char));
+	if (string == NULL)
 		return (NULL);
-	index = 0;
-	for (k = 0; k < ac; k++)
+
+	k = 0;
+	for (i = 0; i < ac; i++)
 	{
-		char *arg = av[k];
-		while (*arg != '\0')
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			result[index] = *arg;
-			index++;
-			arg++;
+			string[k] = av[i][j];
+			k++;
 		}
-		if (k != ac - 1)
-		{
-			result[index] = '\n';
-			index++;
-		}
+		string[k] = '\n';
+		k++;
 	}
-	result[total_length] = '\0';
-	return (result);
+	string[k] = '\0';
+
+	return (string);
 }
