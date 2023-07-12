@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * wordcount - Count how many words.
+  * count_words - Count how many words.
   *
   * @str: String parameter.
   *
@@ -31,7 +31,7 @@ int count_words(char *str)
   * free_memory - Free located memory.
   *
   * @ar: Double char pointer to the grid.
-  * @i: Int parameter.
+  * @size: Int parameter.
   *
   * Return: Nothing.
   */
@@ -39,6 +39,7 @@ int count_words(char *str)
 void free_memory(char **ar, int size)
 {
 	int i;
+
 	if (ar != NULL)
 	{
 		for (i = 0; i < size; i++)
