@@ -3,15 +3,50 @@
 /**
   * multiply - Multiply two integers.
   *
-  * @num1: Int parameter, the first integer.
-  * @num2: Int parameter, the second integer.
+  * @num1: Char pointer parameter, first number as string.
+  * @num2: Char pointer parameter, second number as string.
+  * @result: Char Pointer parameter, to store the product.
   *
-  * Return: Product of num1 and num2.
+  * Return: Nothing.
   */
 
-int multiply(int num1, int num2)
+void multiply(const char *num1, const char *num2, char *result)
 {
-	return (num1 * num2);
+	int len1, len2, maxDigits, i, j, k, l, index, start;
+	int *res;
+
+	len1 = 0;
+	len2 = 0;
+	while (num1[len1] != '\0')
+		len1++;
+	while (num2[len2] != '\0')
+		len2++;
+	maxDigits = len1 + len2;
+	res = (int *)malloc(sizeof(int) * (maxDigits));
+	for (l = 0; l < maxDigits; l++)
+		res[l] = 0;
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			int digit1 = num1[i] - '0';
+			int digit2 = num2[j] - '0';
+			res[i + j + 1] += digit1 * digit2;
+		}
+	}
+	for (k = maxDigits - 1; k > 0; k--)
+	{
+		res[k - 1] += res[k] / 10;
+		res[k] %= 10;
+	}
+	index = 0;
+	start = 0;
+	while (res[start] == 0 && start < maxDigits - 1)
+		start++;
+	while (start < maxDigits)
+		result[index++] = res[start++] + '0';
+	result[index] = '\0';
+	free(res);
 }
 
 /**
@@ -22,15 +57,16 @@ int multiply(int num1, int num2)
   * Return: 1 if the string is numeric, 0 otherwise.
   */
 
-int isNumeric(char *str)
+int isNumeric(const char *str)
 {
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-		str++;
-	}
+	int i = 0;
 
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
 	return (1);
 }
 
@@ -43,10 +79,11 @@ int isNumeric(char *str)
   * Return: always 0 (Success).
   */
 
+
 int main(int argc, char *argv[])
 {
-	char *num1_str, *num2_str;
-	int num1, num2, result;
+	char *num1, *num2, *result;
+	int maxDigits;
 
 	if (argc != 3)
 	{
@@ -54,21 +91,29 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
-	num1_str = argv[1];
-	num2_str = argv[2];
+	num1 = argv[1];
+	num2 = argv[2];
 
-	if (!isNumeric(num1_str) || !isNumeric(num2_str))
+	if (!isNumeric(num1) || !isNumeric(num2))
 	{
 		printf("Error\n");
 		return (98);
 	}
 
-	num1 = atoi(num1_str);
-	num2 = atoi(num2_str);
+	maxDigits = 0;
+	while (num1[maxDigits] != '\0')
+		maxDigits++;
 
-	result = multiply(num1, num2);
+	while (num2[maxDigits] != '\0')
+		maxDigits++;
 
-	printf("%d\n", result);
+	result = (char *)malloc(sizeof(char) * (maxDigits + 1));
+	multiply(num1, num2, result);
+
+	printf("%s\n", result);
+
+	free(result);
 
 	return (0);
 }
+
