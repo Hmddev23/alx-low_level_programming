@@ -60,9 +60,8 @@ void multiply(const char *num1, const char *num2, char *result)
 
 int isNumeric(const char *str)
 {
-	int i;
+	int i = 0;
 
-	i = 0
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
