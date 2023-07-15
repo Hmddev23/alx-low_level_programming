@@ -31,6 +31,7 @@ void multiply(const char *num1, const char *num2, char *result)
 		{
 			int digit1 = num1[i] - '0';
 			int digit2 = num2[j] - '0';
+
 			res[i + j + 1] += digit1 * digit2;
 		}
 	}
@@ -59,8 +60,9 @@ void multiply(const char *num1, const char *num2, char *result)
 
 int isNumeric(const char *str)
 {
-	int i = 0;
+	int i;
 
+	i = 0
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
