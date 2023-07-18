@@ -8,18 +8,19 @@
   * @age: Age of the dog
   * @owner: Owner of the dog
   *
-  * This structure represents a dog and is used to store information about
-  * individual dogs within a program. It consists of three members: 'name' which
-  * is a character pointer holding the name of the dog, 'age' which is a float
-  * indicating the age of the dog, and 'owner' which is a character pointer
-  * representing the owner of the dog.
+  * This structure represents a dog and is used to store
+  * information about individual dogs within a program.
+  * It consists of three members: 'name' which is a character
+  * pointer holding the name of the dog, 'age' which is a float
+  * indicating the age of the dog, and 'owner' which is a character
+  * pointerrepresenting the owner of the dog.
   */
 
 struct dog
 {
-	char* name;
+	char *name;
 	float age;
-	char* owner;
+	char *owner;
 };
 
 #endif /* DOG_H */
