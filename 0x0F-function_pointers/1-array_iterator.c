@@ -6,7 +6,7 @@
   * @array: Int pointer array.
   * @size: Size of the array.
   * @action: Pointer to a function.
-  *  
+  *
   * Return: Nothing.
   */
 
