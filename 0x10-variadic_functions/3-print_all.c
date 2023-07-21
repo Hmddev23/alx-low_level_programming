@@ -19,7 +19,6 @@ void print_all(const char * const format, ...)
 	const char *format_ptr = format;
 
 	va_start(args, format);
-
 	while (*format_ptr != '\0')
 	{
 		if (*format_ptr == 'c')
@@ -45,11 +44,8 @@ void print_all(const char * const format, ...)
 			else
 				printf("%s", str_val);
 		}
-
 		format_ptr++;
 	}
-
 	va_end(args);
-
 	printf("\n");
 }
