@@ -12,39 +12,36 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char ch;
-	int int_val;
-	float float_val;
-	char *str_val;
-	const char *format_ptr = format;
+	const char *ptr = format;
+	char c_arg;
+	int i_arg;
+	float f_arg;
+	char *s_arg;
 
 	va_start(args, format);
-	while (*format_ptr != '\0')
+	while (format && *ptr)
 	{
-		if (*format_ptr == 'c')
+		switch (*ptr++)
 		{
-			ch = (char)va_arg(args, int);
-			printf("%c", ch);
+			case 'c':
+				c_arg = va_arg(args, int);
+				printf("%c", c_arg);
+				break;
+			case 'i':
+				i_arg = va_arg(args, int);
+				printf("%d", i_arg);
+				break;
+			case 'f':
+				f_arg = va_arg(args, double);
+				printf("%f", f_arg);
+				break;
+			case 's':
+				s_arg = va_arg(args, char *);
+				printf("%s", s_arg ? s_arg : "(nil)");
+				break;
 		}
-		else if (*format_ptr == 'i')
-		{
-			int_val = va_arg(args, int);
-			printf("%d", int_val);
-		}
-		else if (*format_ptr == 'f')
-		{
-			float_val = (float)va_arg(args, double);
-			printf("%f", float_val);
-		}
-		else if (*format_ptr == 's')
-		{
-			str_val = va_arg(args, char *);
-			if (str_val == NULL)
-				printf("(nil)");
-			else
-				printf("%s", str_val);
-		}
-		format_ptr++;
+		if (*ptr)
+			printf(", ");
 	}
 	va_end(args);
 	printf("\n");
