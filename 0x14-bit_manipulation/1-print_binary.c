@@ -8,7 +8,8 @@
   * Return: Length.
   */
 
-int binary_length(unsigned long int n) {
+int binary_length(unsigned long int n)
+{
 	int length = 0;
 
 	while (n)
