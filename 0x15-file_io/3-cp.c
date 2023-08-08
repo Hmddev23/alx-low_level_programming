@@ -3,80 +3,104 @@
 /**
   * print_error - Print an error message to the standard error.
   *
-  * @msg: The error message to print.
+  * @message: The error message format.
+  * @file: The file name or descriptor related to the error.
   *
   * Return: Nothing.
   */
 
-void print_error(const char *msg)
+void print_error(const char *message, const char *file)
 {
-	dprintf(STDERR_FILENO, "Error: %s\n", msg);
+	dprintf(STDERR_FILENO, message, file);
+	exit(98);
 }
 
 /**
-  * open_files - Open the source and destination files.
+  * open_source_file - Open the source file for reading.
   *
-  * @source: The name of the source file.
-  * @destination: The name of the destination file.
+  * @file_from: The name of the source file.
   *
-  * Return: Destination file on success, -1 on failure.
+  * Return: The file descriptor of the opened source file.
   */
 
-int open_files(const char *source, const char *destination)
+int open_source_file(const char *file_from)
 {
-	int fd_from = open(source, O_RDONLY);
+	int fd_from = open(file_from, O_RDONLY);
 
 	if (fd_from == -1)
 	{
-		print_error("Can't read from file");
-		return (-1);
+		print_error("Error: Can't read from file %s\n", file_from);
 	}
+	return (fd_from);
+}
 
-	int fd_to = open(destination, O_WRONLY | O_CREAT | O_TRUNC,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+/**
+  * create_dest_file - Create or truncate the destination file for writing.
+  *
+  * @file_to: The name of the destination file.
+  *
+  * Return: The file descriptor of the created/truncated destination file.
+  */
+
+int create_dest_file(const char *file_to)
+{
+	int fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC,
+	        S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 
 	if (fd_to == -1)
 	{
-		print_error("Can't write to file");
-		close(fd_from);
-		return (-1);
+		print_error("Error: Can't write to %s\n", file_to);
 	}
 
 	return (fd_to);
 }
 
 /**
-  * copy_file_contents - Copy content from one file to another.
+  * copy_file_content - Copy content from source file to destination file.
   *
-  * @fd_from: File descriptor of the source file.
-  * @fd_to: File descriptor of the destination file.
+  * @fd_from: The file descriptor of the source file.
+  * @fd_to: The file descriptor of the destination file.
   *
-  * Return: 0 on success, -1 on failure.
+  * Return: Nothing.
   */
 
-int copy_file_contents(int fd_from, int fd_to)
+void copy_file_content(int fd_from, int fd_to)
 {
-	ssize_t nread, nwritten;
-	char buffer[BUFFER_SIZE];
+	char buffer[1024];
+	ssize_t bytes_read;
 
-	while ((nread = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
-		nwritten = write(fd_to, buffer, nread);
+		ssize_t bytes_written = write(fd_to, buffer, bytes_read);
 
-		if (nwritten == -1 || nwritten != nread)
+		if (bytes_written == -1)
 		{
-			print_error("Can't write to file");
-			return (-1);
+			print_error("Error: Can't write to destination file\n", "");
 		}
 	}
 
-	if (nread == -1)
+	if (bytes_read == -1)
 	{
-		print_error("Can't read from file");
-		return (-1);
+		print_error("Error: Can't read from source file\n", "");
 	}
+}
 
-	return (0);
+/**
+  * close_files - Close file descriptors.
+  *
+  * @fd_from: The file descriptor of the source file.
+  * @fd_to: The file descriptor of the destination file.
+  *
+  * Return: Nothing.
+  */
+
+void close_files(int fd_from, int fd_to)
+{
+	if (close(fd_from) == -1 || close(fd_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close file descriptors\n");
+		exit(100);
+	}
 }
 
 /**
@@ -90,33 +114,22 @@ int copy_file_contents(int fd_from, int fd_to)
 
 int main(int argc, char *argv[])
 {
-	int fd_from = open(argv[1], O_RDONLY);
-	int fd_to = open_files(argv[1], argv[2]);
+	const char *file_from = argv[1];
+	const char *file_to = argv[2];
 
 	if (argc != 3)
 	{
-		print_error("Usage: cp file_from file_to");
-		return (97);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		exit(97);
 	}
 
-	if (fd_from == -1)
-		return (98);
+	int fd_from = open_source_file(file_from);
+	int fd_to = create_dest_file(file_to);
 
-	if (fd_to == -1)
-	{
-		close(fd_from);
-		return (99);
-	}
+	copy_file_content(fd_from, fd_to);
 
-	if (copy_file_contents(fd_from, fd_to) == -1)
-	{
-		close(fd_from);
-		close(fd_to);
-		return (99);
-	}
-
-	close(fd_from);
-	close(fd_to);
+	close_files(fd_from, fd_to);
 
 	return (0);
 }
+
