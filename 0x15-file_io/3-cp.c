@@ -1,5 +1,8 @@
 #include "main.h"
 
+char *create_buffer(char *filename);
+void close_file(int fd);
+
 /**
   * create_buffer - Allocate a buffer of 1024 bytes for file I/O.
   *
