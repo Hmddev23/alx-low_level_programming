@@ -10,22 +10,22 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-        unsigned int result = 0;
-        int bit;
+	unsigned int result = 0;
+	int bit;
 
-        if (b == NULL)
-                return (0);
+	if (b == NULL)
+		return (0);
 
-        while (*b != '\0')
-        {
-                bit = *b - '0';
+	while (*b != '\0')
+	{
+		bit = *b - '0';
 
-                if (bit != 0 && bit != 1)
-                        return (0);
+		if (bit != 0 && bit != 1)
+			return (0);
 
-                result = (result << 1) | bit;
-                b++;
-        }
+		result = (result << 1) | bit;
+		b++;
+	}
 
-        return (result);
+return (result);
 }
