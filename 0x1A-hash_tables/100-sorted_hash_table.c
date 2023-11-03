@@ -33,7 +33,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 	hsh_tab->shead = NULL;
 	hsh_tab->stail = NULL;
 
-	return (ht);
+	return (hsh_tab);
 }
 
 /**
