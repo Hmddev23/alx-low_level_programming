@@ -54,7 +54,6 @@ void hash_table_delete(hash_table_t *ht);
  * @sprev: A pointer to the previous element of the sorted linked list
  * @snext: A pointer to the next element of the sorted linked list
  */
-
 typedef struct shash_node_s
 {
 	char *key;
@@ -74,7 +73,6 @@ typedef struct shash_node_s
  * @shead: A pointer to the first element of the sorted linked list
  * @stail: A pointer to the last element of the sorted linked list
  */
-
 typedef struct shash_table_s
 {
 	unsigned long int size;
