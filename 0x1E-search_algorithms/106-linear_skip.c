@@ -8,15 +8,12 @@
   *
   * Return: Pointer to the first node where the value is located.
   */
-
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
 	skiplist_t *node, *jump;
 
 	if (list == NULL)
-	{
 		return (NULL);
-	}
 
 	for (node = jump = list; jump->next != NULL && jump->n < value;)
 	{
@@ -30,9 +27,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		else
 		{
 			while (jump->next != NULL)
-			{
 				jump = jump->next;
-			}
 		}
 	}
 
@@ -40,9 +35,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 			node->index, jump->index);
 
 	for (; node->index < jump->index && node->n < value; node = node->next)
-	{
 		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
-	}
 	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
 
 	return (node->n == value ? node : NULL);
